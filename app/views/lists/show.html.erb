@@ -3,16 +3,22 @@
 
 
     <% @list.bookmarks.each do |bookmark| %>
-      <p><%= bookmark.comment %></p>
-      <p><%= bookmark.movie.id[:name] %></p>
+    <ul>
+      <li><%= link_to bookmark.movie.title, list_bookmark_path(bookmark) %> - <%= bookmark.comment %> </li>
+    </ul>
     <% end %>
 
-
-
-
-
-  <button><%= link_to "Add a new Bookmark", new_list_bookmark_path(@list) %></button>
-  <button><%= link_to "Back to Lists", lists_path %></button>
+    <button><%= link_to "Add a new Bookmark", new_list_bookmark_path(@list) %></button>
+    <button><%= link_to "Back to Lists", root_path %></button>
 
 </div>
- <%= console %>
+
+<%# # Prefix Verb   URI Pattern                                                                                       Controller#Action
+# bookmarks_comment GET    /bookmarks/comment(.:format)                                                                      bookmarks#comment
+#    list_bookmarks POST   /lists/:list_id/bookmarks(.:format)                                                               bookmarks#create
+# new_list_bookmark GET    /lists/:list_id/bookmarks/new(.:format)                                                           bookmarks#new
+#     list_bookmark DELETE /lists/:list_id/bookmarks/:id(.:format)                                                           bookmarks#destroy
+#             lists GET    /lists(.:format)                                                                                  lists#index
+#                   POST   /lists(.:format)                                                                                  lists#create
+#          new_list GET    /lists/new(.:format)                                                                              lists#new
+#              list GET    /lists/:id(.:format) %>

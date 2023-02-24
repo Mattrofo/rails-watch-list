@@ -1,12 +1,60 @@
-<div class="list_all p-4">
-  <h1>My lists</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <ul>
-    <% @lists.each do |list| %>
-    <li><%= link_to list.name, list_path(list)%></li>
-    <% end %>
-  </ul>
+  <title>Watch list</title>
+</head>
+<body>
+    <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+          <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" />
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-<%= link_to "Create a list", new_list_path %>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto">
+              <li class="nav-item active">
+                <a class="nav-link" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Messages</a>
+              </li>
+              <li class="nav-item dropdown">
+                <img class="avatar dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://kitt.lewagon.com/placeholder/users/ssaunier" />
+                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="#">Action</a>
+                  <a class="dropdown-item" href="#">Another action</a>
+                  <a class="dropdown-item" data-turbo-method="delete" href="#">Log out</a>
+                </div>
+              </li>
+              <!--li class="nav-item"-->
+              <!--/li-->
+          </ul>
+        </div>
+      </div>
+    </div>
 
-</div>
+    <div class="container">
+    <h1>My lists</h1>
+      <div class="cards p-4">
+          <% @lists.each do |list| %>
+            <%= link_to list_path(list) do %>
+              <div class="card-category my-3" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+                <%= list.name %>
+              </div>
+            <% end %>
+          <% end %>
+      </div>
+      <div class="container">
+          <%= link_to "Create a list", new_list_path, class:"button-74" %>
+      </div>
+    </div>
+
+</body>
+</html>
