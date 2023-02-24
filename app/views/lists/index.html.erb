@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-Qj/JSfz2g85GxZXkW/ehAUnjKXrNfE7PnnO6+uV7Y4+BCgOkjKPI67Pa6c5O5U5X9PyM80zw3qKJoQzSKDe+0w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-Qj/JSfz2g85GxZXkW/ehAUnjKXrNfE7PnnO6+uV7Y4+BCgOkjKPI67Pa6c5O5U5X9PyM80zw3qKJoQzSKDe+0w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <title>Watch list</title>
 </head>
 <body>
@@ -23,7 +23,7 @@
                 <a class="nav-link" href="#">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Bookmars</a>
+                <a class="nav-link" href="#">Messages</a>
               </li>
               <li class="nav-item dropdown">
                 <img class="avatar dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://kitt.lewagon.com/placeholder/users/ssaunier" />
@@ -54,8 +54,8 @@
       </div>
       <div class="cards p-4">
           <% @lists.each do |list| %>
-            <%= link_to list_path(list) do %>
-              <div class="card-category my-3" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+            <%= link_to list_path(list), class:"text-decoration-none" do %>
+              <div class="card-category my-3" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= list.poster_url.nil? ? 'https://images.unsplash.com/photo-1608170825938-a8ea0305d46c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1625&q=80' : list.poster_url %>)">
                 <%= list.name %>
               </div>
             <% end %>
@@ -75,9 +75,8 @@
         <a href="#"><i class="fab fa-linkedin"></i></a>
       </div>
       <div class="footer-copyright">
-        En vrai ça croustille <i class="fas fa-heart"></i>
+        Copyright Mathieu <i class="fas fa-heart"></i>
       </div>
     </div>
-
 </body>
 </html>
